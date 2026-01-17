@@ -1,0 +1,4 @@
+^renv$
+^renv\.lock$
+^amateur-dota-leagues\.Rproj$
+^\.Rproj\.user$
