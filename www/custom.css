@@ -1,0 +1,49 @@
+/* --- Global font + smoothing --- */
+body, .content-wrapper {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f5f6fa;
+}
+
+/* --- Card polish --- */
+.card {
+  border-radius: 10px !important;
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* --- Sidebar cleanup --- */
+.main-sidebar {
+  border-right: 1px solid #e1e1e1;
+}
+
+.nav-sidebar > .nav-item > .nav-link {
+  border-radius: 6px;
+  margin: 4px 8px;
+  font-size: 15px;
+}
+
+.nav-sidebar > .nav-item > .nav-link.active {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+/* --- Header tweaks --- */
+.main-header {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Scope specifically to shinyWidgets radioGroupButtons */
+.radioGroupButtons .btn {
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover state */
+.radioGroupButtons .btn:hover {
+  background-color: #e6f0ff !important;
+  color: #007bff !important;
+}
+
+/* Active/selected state – same as hover */
+.radioGroupButtons .btn.active { background-color: #e6f0ff !important; color: #007bff !important; }
