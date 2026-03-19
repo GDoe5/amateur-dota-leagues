@@ -9,11 +9,18 @@ main_ui <- function() {
     ),
     sidebar = dashboardSidebar(
       skin = "light",
-      bs4SidebarMenu(bs4SidebarMenuItem(
-        "Player sign-up",
-        tabName = "player_sign_up",
-        icon = icon("address-card")
-      ))
+      bs4SidebarMenu(
+        bs4SidebarMenuItem(
+          "Player sign-up",
+          tabName = "player_sign_up",
+          icon = icon("address-card")
+        ),
+        bs4SidebarMenuItem(
+          "Upload replays",
+          tabName = "replay_upload",
+          icon = icon("upload")
+        )
+      )
     ),
     body = dashboardBody(
       tags$head(
@@ -24,6 +31,10 @@ main_ui <- function() {
         tabItem(
           tabName = "player_sign_up",
           player_signup_ui("player_signup")
+        ),
+        tabItem(
+          tabName = "replay_upload",
+          replay_upload_ui("replay_upload")
         )
       )
     )

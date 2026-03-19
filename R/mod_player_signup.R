@@ -65,4 +65,6 @@ player_signup_ui <- function(id) {
   )
 }
 
-player_signup_server <- function(id) {}
+player_signup_server <- function(id, sv, rv) {
+  shiny::moduleServer(id, function(input, output, session) {})
+}
