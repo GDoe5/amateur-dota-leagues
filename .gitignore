@@ -49,3 +49,6 @@ po/*~
 rsconnect/
 .vscode/settings.json
 .Rproj.user
+
+# data folder
+/data/

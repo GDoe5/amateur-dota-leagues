@@ -162,9 +162,10 @@ wheels = [
 
 [[package]]
 name = "gem-dota"
-version = "0.2.4"
+version = "0.2.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
+    { name = "ipykernel" },
     { name = "numpy" },
     { name = "pandas" },
     { name = "pillow" },
@@ -173,9 +174,9 @@ dependencies = [
     { name = "protoc-wheel-0" },
     { name = "python-snappy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/9b/1d/49004ebcb8e9658e3e406d0c66a8ace8f692e2c2cd397f313daea882d27a/gem_dota-0.2.4.tar.gz", hash = "sha256:0ffcc00b2d4ece72d63030de1a9b85125a99dc75b0c78462e38568ca8cd530a5", size = 910254, upload-time = "2026-03-17T12:42:14.893Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ea/f2/03c98e02e5bbb382b8ebbc521edc53e945d44e86f5634313e992a555245f/gem_dota-0.2.6.tar.gz", hash = "sha256:30b569ff77ea7113e94a0e2a6861b28bd96bc653920346a2048d35e3c6ab1de9", size = 916849, upload-time = "2026-03-20T16:24:46.085Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2c/3e/9a48685587d86c341c590d64acac09e3b38f683601c1e4a4a518e92e3d98/gem_dota-0.2.4-py3-none-any.whl", hash = "sha256:20bba150ec276328777c10c90073e5d74d39cadc85dac77fbe32f4325e71f226", size = 1004493, upload-time = "2026-03-17T12:42:13.564Z" },
+    { url = "https://files.pythonhosted.org/packages/db/69/689c552583f2a22e3ed8f633083c9e633b8d8e781e94d6c9972f870581d7/gem_dota-0.2.6-py3-none-any.whl", hash = "sha256:8f738b34ee63519819fa5c68193d9d3de012e94183b584b9c3a594c36e0aba8d", size = 1011278, upload-time = "2026-03-20T16:24:44.427Z" },
 ]
 
 [[package]]
