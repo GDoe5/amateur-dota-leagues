@@ -1,8 +1,8 @@
 CREATE TABLE match_draft (
   id SERIAL PRIMARY KEY,
   match_id BIGINT REFERENCES matches(match_id),
-  hero_name TEXT,
-  is_pick TEXT CHECK (is_pick IN ('pick', 'ban')),
-  team TEXT CHECK (team IN ('radiant', 'dire')),
-  draft_order INTEGER
+  hero_name TEXT NOT NULL,
+  draft_action TEXT CHECK (draft_action IN ('pick', 'ban')),
+  draft_side TEXT CHECK (draft_side IN ('radiant', 'dire')),
+  draft_order INTEGER NOT NULL
 )
