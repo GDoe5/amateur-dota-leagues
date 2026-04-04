@@ -9,6 +9,10 @@ def parse_replay(dem_path):
     matches = pd.DataFrame([{
         "league_id":        match.leagueid,
         "match_id":         match.match_id,
+        "radiant_team_id":  match.radiant_team_id,
+        "radiant_team_name":match.radiant_team_name,
+        "dire_team_id":     match.dire_Team_id,
+        "dire_team_name":   match.dire_team_name,
         "duration_seconds": match.duration_seconds,
         "radiant_win":      match.radiant_win,
         "game_mode":        match.game_mode,
@@ -18,6 +22,7 @@ def parse_replay(dem_path):
     players = pd.DataFrame([{
         "match_id":           match.match_id,
         "slot_id":            p.player_id,
+        "account_id":         p.account_id,
         "player_name":        p.player_name,
         "hero_name":          hero_display(p.hero_name),
         "team":               "radiant" if p.team == 2 else "dire",
@@ -46,3 +51,8 @@ def parse_replay(dem_path):
     # return match
 
     return matches, players, draft
+
+def parse_replay_full(dem_path):
+    match = gem.parse(dem_path)
+
+    return match
