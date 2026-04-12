@@ -11,7 +11,7 @@ def parse_replay(dem_path):
         "match_id":         match.match_id,
         "radiant_team_id":  match.radiant_team_id,
         "radiant_team_name":match.radiant_team_name,
-        "dire_team_id":     match.dire_Team_id,
+        "dire_team_id":     match.dire_team_id,
         "dire_team_name":   match.dire_team_name,
         "duration_seconds": match.duration_seconds,
         "radiant_win":      match.radiant_win,
