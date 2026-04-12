@@ -5,11 +5,18 @@ main_ui <- function() {
     title = "Tournament",
     fullscreen = TRUE,
     header = dashboardHeader(
-      title = dashboardBrand(title = "Tournament", color = "primary")
+      title = dashboardBrand(title = "Tournament", color = "primary"),
+      rightUI = shiny::uiOutput("header_user")
     ),
     sidebar = dashboardSidebar(
       skin = "light",
       bs4SidebarMenu(
+        id = "tabs",
+        bs4SidebarMenuItem(
+          "Log-in/ Register",
+          tabName = "auth",
+          icon = icon("address-card")
+        ),
         bs4SidebarMenuItem(
           "Player sign-up",
           tabName = "player_sign_up",
@@ -24,10 +31,18 @@ main_ui <- function() {
     ),
     body = dashboardBody(
       tags$head(
-        tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
-        tags$script(src = "custom.js")
+        tags$link(
+          rel = "stylesheet",
+          type = "text/css",
+          href = "www/custom.css"
+        ),
+        tags$script(src = "www/custom.js")
       ),
       tabItems(
+        tabItem(
+          tabName = "auth",
+          auth_ui("auth")
+        ),
         tabItem(
           tabName = "player_sign_up",
           player_signup_ui("player_signup")

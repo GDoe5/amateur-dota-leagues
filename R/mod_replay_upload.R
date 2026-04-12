@@ -39,7 +39,7 @@ replay_upload_ui <- function(id) {
   )
 }
 
-replay_upload_server <- function(id, sv, rv) {
+replay_upload_server <- function(id, sv, rv, pool) {
   shiny::moduleServer(id, function(input, output, session) {
     modrv <- shiny::reactiveValues(
       result = list(

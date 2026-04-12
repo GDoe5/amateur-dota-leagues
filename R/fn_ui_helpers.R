@@ -29,3 +29,7 @@ preference_input <- function(
     )
   )
 }
+
+switch_tab <- function(tab_name) {
+  shinyjs::runjs(paste0('$("[data-value=\'', tab_name, '\']").tab("show")'))
+}
