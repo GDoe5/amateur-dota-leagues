@@ -47,3 +47,13 @@ body, .content-wrapper {
 
 /* Active/selected state – same as hover */
 .radioGroupButtons .btn.active { background-color: #e6f0ff !important; color: #007bff !important; }
+
+/* smooth switch tab */
+.tab-pane {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
