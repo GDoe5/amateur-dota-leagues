@@ -2,7 +2,7 @@ main_server <- function(input, output, session) {
   os <- .Platform$OS.type
 
   sv <- shiny::reactiveValues(
-    user_id = NULL,
+    user_id = NA_character_,
     username = NULL,
     is_admin = FALSE,
     is_signed_in = FALSE,
@@ -19,7 +19,7 @@ main_server <- function(input, output, session) {
   replay_upload_server("replay_upload", sv = sv, rv = rv, pool = pool)
 
   observe({
-    sv$user_id <- NULL
+    sv$user_id <- NA_character_
     sv$username <- NULL
     sv$is_admin <- FALSE
     sv$is_signed_in <- FALSE
