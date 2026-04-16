@@ -13,17 +13,12 @@ preference_input <- function(
       shinyWidgets::radioGroupButtons(
         NS(ns_id, input_id),
         choiceNames = c("", "", "", "", ""),
-        choiceValues = c(
-          "Strongly prefer (+++)",
-          "Prefer (++)",
-          "I don't mind (+)",
-          "Not prefer (--)",
-          "Strongly not prefer (---)"
-        ),
+        choiceValues = c(2, 1, 0, -1, -2),
         checkIcon = list(
           yes = icon("square-check"),
           no = icon("square")
         ),
+        selected = 0,
         justified = TRUE
       )
     )
