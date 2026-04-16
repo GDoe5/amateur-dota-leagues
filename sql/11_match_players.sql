@@ -1,6 +1,6 @@
-CREATE TABLE match_players (
+CREATE TABLE db.match_players (
   id SERIAL PRIMARY KEY,
-  match_id BIGINT REFERENCES matches(match_id),
+  match_id BIGINT REFERENCES db.matches(match_id),
   slot_id INTEGER,
   account_id BIGINT,
   player_name TEXT,

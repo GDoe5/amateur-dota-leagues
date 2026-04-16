@@ -1,4 +1,4 @@
-CREATE TABLE matches (
+CREATE TABLE db.matches (
   league_id INTEGER,
   match_id BIGINT PRIMARY KEY,
   duration_seconds NUMERIC,

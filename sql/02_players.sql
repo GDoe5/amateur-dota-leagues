@@ -1,6 +1,6 @@
-CREATE TABLE players (
+CREATE TABLE db.players (
   id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id),
+  user_id INTEGER REFERENCES db.users(id),
   discord TEXT,
   nickname TEXT,
   dota_player_id TEXT,

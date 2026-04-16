@@ -1,4 +1,4 @@
-CREATE TABLE tournaments (
+CREATE TABLE db.tournaments (
   id SERIAL PRIMARY KEY,
   tournament_name TEXT NOT NULL,
   status TEXT NOT NULL,
@@ -14,5 +14,5 @@ CREATE TABLE tournaments (
   tournament_end TIMESTAMP,
   group_stage_num_groups INTEGER,
   group_stage_num_teams INTEGER,
-  main_stage_format_id INTEGER REFERENCES bracket_formats(id)
+  main_stage_format_id INTEGER REFERENCES db.bracket_formats(id)
 )

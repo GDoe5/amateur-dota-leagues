@@ -1,6 +1,6 @@
-CREATE TABLE teams (
+CREATE TABLE db.teams (
   id SERIAL PRIMARY KEY,
-  tournament_id INTEGER REFERENCES tournaments(id),
+  tournament_id INTEGER REFERENCES db.tournaments(id),
   team_name TEXT NOT NULL,
   team_short_name TEXT NOT NULL,
   dota_team_id TEXT NOT NULL,
