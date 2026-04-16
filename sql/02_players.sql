@@ -12,6 +12,6 @@ CREATE TABLE players (
   pos_4_pref INTEGER,
   pos_5_pref INTEGER,
   stand_in BOOLEAN,
-  created_at TIMESTAMP DEFAULT NOW(),
-  updated_at TIMESTAMP
+  valid_from TIMESTAMP DEFAULT NOW(),
+  valid_to TIMESTAMP DEFAULT '9999-12-31 23:59:59'
 )
