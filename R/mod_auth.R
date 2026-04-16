@@ -104,10 +104,14 @@ auth_server <- function(id, sv, rv, pool) {
         )
       )
 
-      if (
-        nrow(user) == 0 |
-          !bcrypt::checkpw(input$signin_password, user$password_hash)
-      ) {
+      if (nrow(user) == 0) {
+        output$signin_error_message <- renderText(
+          "Invalid username or password."
+        )
+        return()
+      }
+
+      if (!bcrypt::checkpw(input$signin_password, user$password_hash)) {
         output$signin_error_message <- renderText(
           "Invalid username or password."
         )
