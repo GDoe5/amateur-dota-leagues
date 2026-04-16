@@ -1,5 +1,6 @@
 main_server <- function(input, output, session) {
   os <- .Platform$OS.type
+  local <- FALSE
 
   sv <- shiny::reactiveValues(
     user_id = NA_character_,
@@ -9,7 +10,7 @@ main_server <- function(input, output, session) {
     new_registration = NULL
   )
   rv <- shiny::reactiveValues()
-  pool <- db_connect(os)
+  pool <- db_connect(os, local)
   shiny::onStop(function() {
     pool::poolClose(pool)
   })

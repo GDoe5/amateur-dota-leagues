@@ -2,7 +2,7 @@ db_connect <- function(os, local = TRUE) {
   if (os == "windows") {
     pool::dbPool(
       RPostgres::Postgres(),
-      host = if (local) "localhost",
+      host = if (local) "localhost" else keyring::key_get("db_host"),
       port = 5432,
       dbname = "tournament",
       user = keyring::key_get("db_user"),
@@ -11,7 +11,7 @@ db_connect <- function(os, local = TRUE) {
   } else {
     pool::dbPool(
       RPostgres::Postgres(),
-      host = if (local) "localhost",
+      host = if (local) "localhost" else Sys.getenv("DB_HOST"),
       port = 5432,
       dbname = "tournament",
       user = Sys.getenv("DB_USER"),
@@ -21,13 +21,18 @@ db_connect <- function(os, local = TRUE) {
 }
 
 
-db_reset <- function(os) {
-  pool <- db_connect(os)
+db_reset <- function(os, local = TRUE) {
+  pool <- db_connect(os, local)
   on.exit(pool::poolClose(pool))
+
+  db_user <- keyring::key_get("db_user")
 
   DBI::dbExecute(pool, "DROP SCHEMA IF EXISTS db CASCADE")
   DBI::dbExecute(pool, "CREATE SCHEMA IF NOT EXISTS db")
-  DBI::dbExecute(pool, "GRANT ALL ON SCHEMA db TO db_user")
+  DBI::dbExecute(
+    pool,
+    glue::glue_sql("GRANT ALL ON SCHEMA db TO {`db_user`}", .con = pool)
+  )
 
   sql_files <- list.files("sql", full.names = TRUE)
 
