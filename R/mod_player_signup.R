@@ -52,7 +52,7 @@ player_signup_ui <- function(id) {
         column(
           width = 6,
           fluidRow(
-            column(width = 5, strong("Farming priority preferences")),
+            column(width = 5, strong("Role preferences")),
             column(
               width = 3,
               div("Strongly prefer"),
@@ -205,10 +205,11 @@ player_signup_server <- function(id, sv, rv, pool) {
         return()
       }
 
-      DBI::dbExecute(
-        pool,
-        glue::glue_sql(
-          "
+      if (nrow(existing_data() > 0)) {
+        DBI::dbExecute(
+          pool,
+          glue::glue_sql(
+            "
           UPDATE
             db.players 
           SET
@@ -216,9 +217,10 @@ player_signup_server <- function(id, sv, rv, pool) {
           WHERE
             id = {existing_data()$id}
           ",
-          .con = pool
+            .con = pool
+          )
         )
-      )
+      }
 
       DBI::dbWriteTable(
         pool,
